@@ -10,7 +10,6 @@ import {
 } from "reactstrap";
 import SidebarMinimizer from "./../SidebarMinimizer";
 import MessagesDropdown from "./MessagesDropdown";
-import NewTask from "../../views/newTask";
 
 class Header extends Component {
   constructor(props) {
@@ -48,10 +47,6 @@ class Header extends Component {
   render() {
     return (
       <header className="app-header navbar" style={{ maxWidth: 1920 }}>
-        <NewTask
-          toggle={this.addTaskToggle.bind(this)}
-          open={this.state.addingTask}
-        />
         <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
           <span className="navbar-toggler-icon" />
         </NavbarToggler>
@@ -74,13 +69,14 @@ class Header extends Component {
             </InputGroupAddon>
           </InputGroup>
         </NavbarToggler>
-          <button
+          {/* <button
             type="button"
             className="btn btn-link"
             onClick={this.addTaskToggle.bind(this)}
           >
             Add task
-          </button>
+          </button> */}
+          <a href="#/newTask">Add task</a>
         <Nav className="ml-auto" navbar>
           <MessagesDropdown />
         </Nav>

@@ -73,7 +73,7 @@ class Full extends Component {
                 />
                 <Route
                   exact
-                  path="/newTask"
+                  path="/NewTask"
                   name="New task"
                   component={NewTask}
                 />
@@ -367,12 +367,12 @@ class Full extends Component {
                     name="Tag edit"
                     component={TagEdit}
                   />
-                <Route
-                  exact
-                  path="/task/edit/:id"
-                  name="Edit task"
-                  component={EditTask}
-                />
+                  <Route
+                    exact
+                    path="/task/edit/:id"
+                    name="Edit task"
+                    component={EditTask}
+                  />
                 <Route
                   exact
                   path="/secondEditTask"

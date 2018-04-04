@@ -98,8 +98,8 @@ export default class MultiSelect extends Component {
       >
       <DropdownToggle caret style={this.props.toggleStyle?this.props.toggleStyle:{}}>{this.props.label?this.props.label:''}</DropdownToggle>
       <DropdownMenu>
-      <div class="list-group">
-      <div  class="list-group-item" style={this.props.titleStyle?this.props.titleStyle:{}}>
+      <div className="list-group">
+      <div  className="list-group-item" style={this.props.titleStyle?this.props.titleStyle:{}}>
       {this.props.title?this.props.title:''}
       </div>
       <input
@@ -108,7 +108,8 @@ export default class MultiSelect extends Component {
       onChange={(value)=>this.setState({filter:value.target.value})}
       />
       {this.props.data.filter((item)=>(item[this.state.filterBy]+"").toLowerCase().includes(this.state.filter.toLowerCase())).map((item)=>(
-        <div class="list-group-item list-group-item-action"
+        <div className="list-group-item list-group-item-action"
+        key={item[this.state.idValue]}
         onClick={(value)=>{this.onChange(item[this.state.idValue]+"")}}
         style={{width:'auto',flex:1,display:"flex",backgroundColor:this.state.colored?item.color:'white',color:this.state.colored?'white':'black',...this.state.menuItemStyle,cursor:'pointer'}}>
         <input
@@ -135,7 +136,7 @@ export default class MultiSelect extends Component {
             return this.props.renderItem(item);
           }
           return(
-        <div style={{backgroundColor:this.state.colored?item.color:'white',color:this.state.colored?'white':'black',...this.state.displayItemStyle}}>
+        <div key={item[this.state.idValue]} style={{backgroundColor:this.state.colored?item.color:'white',color:this.state.colored?'white':'black',...this.state.displayItemStyle}}>
         {item[this.state.displayValue]}
         </div>)
       })

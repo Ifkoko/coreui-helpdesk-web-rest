@@ -53,7 +53,6 @@ let mockTypPrace = [
 class EditTask extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.toggle = this.toggle.bind(this);
     this.state = {
       company:this.props.task.company.id,
@@ -83,7 +82,7 @@ class EditTask extends Component {
     });
   }
   render() {
-    console.log(this.props.taskSolvers);
+    console.log(this.props);
     return (
       <div>
         <Card

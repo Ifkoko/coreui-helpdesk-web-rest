@@ -101,12 +101,22 @@ import { TASKS_LIST, PROJECTS_LIST, TASK_ATTRIBUTES_LIST, PROJECT_LIST } from '.
 
 /**
  * Adds new task
+ * @param {int} projectId - required
+ * @param {int} statusId - required
+ * @param {int} companyId
  * @param {object} body  All parameters in an object of the new task
  * @param {string} token universal token for API comunication
  */
-export const addTask = (body,token) => {
+export const addTask = (projectId, statusId, companyId, body, token) => {
+  
+let urlString = '/project/'+projectId+'/status/'+statusId;
+if(typeof(companyId)!=='undefined' && companyId !== ''){
+  urlString += '/company/'+companyId
+}
+// console.log('body: ',JSON.stringify(body))
+
   return (dispatch) => {
-      fetch(TASKS_LIST,{
+      fetch(TASKS_LIST+urlString,{
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'Bearer ' + token
@@ -116,6 +126,7 @@ export const addTask = (body,token) => {
       })
     .then((response)=>{
     response.json().then((response)=>{
+      console.log('addTask response: ',response)
       dispatch({type: ADD_TASK, task:response.data});
     })})
     .catch(function (error) {
