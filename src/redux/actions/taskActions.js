@@ -113,7 +113,7 @@ let urlString = '/project/'+projectId+'/status/'+statusId;
 if(typeof(companyId)!=='undefined' && companyId !== ''){
   urlString += '/company/'+companyId
 }
-// console.log('body: ',JSON.stringify(body))
+// console.log('urlString: ',TASKS_LIST+urlString,'body: ',JSON.stringify(body))
 
   return (dispatch) => {
       fetch(TASKS_LIST+urlString,{
