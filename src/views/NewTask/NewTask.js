@@ -32,7 +32,8 @@ class NewTask extends Component {
           7: 'select2',
           8: ['select1', 'select3'],
           9: false,
-          10: Date.now()
+          10: Date.now(),
+          11: 'select1'
         }
       }
     };
